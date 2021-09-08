@@ -4,14 +4,16 @@ import com.example.socialmediaapp.domain.Post;
 import com.example.socialmediaapp.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PostServiceImpl implements PostService{
+public class PostServiceImpl implements PostService {
 
-   private final PostRepository postRepository;
+    private final PostRepository postRepository;
 
+    @Autowired
     public PostServiceImpl(PostRepository postRepository) {
         this.postRepository = postRepository;
     }
@@ -38,6 +40,6 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public void updatePost(int id, Post post) {
-        postRepository.updatePost(id,post);
+        postRepository.updatePost(id, post);
     }
 }

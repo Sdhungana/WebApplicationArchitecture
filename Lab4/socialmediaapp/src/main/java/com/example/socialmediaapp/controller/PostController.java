@@ -1,7 +1,9 @@
 package com.example.socialmediaapp.controller;
 
 import com.example.socialmediaapp.domain.Post;
+import com.example.socialmediaapp.domain.PostV2;
 import com.example.socialmediaapp.service.PostService;
+import com.example.socialmediaapp.service.PostServiceV2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
@@ -17,15 +19,26 @@ import java.util.Optional;
 public class PostController {
 
     private final PostService postService;
+    private PostServiceV2 postServiceV2;
 
     @Autowired
     public PostController(PostService postService) {
         this.postService = postService;
     }
 
-    @GetMapping
-    public List<Post> getAllPosts() {
+    @Autowired
+    public void setPostServiceV2(PostServiceV2 postServiceV2) {
+        this.postServiceV2 = postServiceV2;
+    }
+
+    @GetMapping(value = "/v1", headers = "X-API-VERSION=1")
+    public List<Post> getAllPostsV1() {
         return postService.getAll();
+    }
+
+    @GetMapping(value = "/v2", headers = "X-API-VERSION=2")
+    public List<PostV2> getAllPostsV2() {
+        return postServiceV2.getAll();
     }
 
     @GetMapping("/{id}")
@@ -50,7 +63,7 @@ public class PostController {
     public Post createPost(@RequestBody Post post) {
         postService.createPost(post);
         //return new Post();
-        return  post;
+        return post;
     }
 
     @DeleteMapping("/{id}")
