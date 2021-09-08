@@ -59,7 +59,6 @@ public class PostController {
         WebMvcLinkBuilder link2 = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).deletePost(id));
         resource.add(link1.withRel("Save-Post"));
         resource.add(link2.withRel("Delete-post"));
-
         return resource;
     }
 
