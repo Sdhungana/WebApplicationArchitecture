@@ -19,7 +19,7 @@ public class PostController {
     PostService postService;
     @GetMapping
     public List<Post> getAllPosts() {
-        return postService.getAll();
+            return postService.getAll();
     }
     @GetMapping("/{id}")
     public Optional<Post> getById(@PathVariable("id") int id) {
