@@ -45,8 +45,9 @@ public class PostServiceImpl implements PostService {
     public void updatePost(long id, Post post) {
         Optional<Post> p = getById(id);
         if (p.isPresent()) {
+            deletePost(id);
             post.setId(id);
-            postRepository.save(post);
+            createPost(post);
         }
     }
 }
