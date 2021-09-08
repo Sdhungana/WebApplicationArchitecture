@@ -62,7 +62,6 @@ public class PostController {
     @ResponseStatus(value = HttpStatus.CREATED)
     public Post createPost(@RequestBody Post post) {
         postService.createPost(post);
-        //return new Post();
         return post;
     }
 
