@@ -15,7 +15,7 @@ import java.util.Optional;
 @Transactional
 public class PostServiceV2Impl implements PostServiceV2 {
 
-    private PostRepositoryV2 postRepositoryV2;
+    private final PostRepositoryV2 postRepositoryV2;
 
     @Autowired
     public PostServiceV2Impl(PostRepositoryV2 postRepositoryV2) {
@@ -32,24 +32,5 @@ public class PostServiceV2Impl implements PostServiceV2 {
         return postRepositoryV2.findById(id);
     }
 
-    @Override
-    public void createPost(PostV2 post) {
-        postRepositoryV2.save(post);
-    }
 
-    @Override
-    public void deletePost(long id) {
-        postRepositoryV2.deleteById(id);
-    }
-
-    @Override
-    public void updatePost(long id, PostV2 post) {
-        Optional<PostV2> p = getById(id);
-        if (p != null) {
-            deletePost(id);
-            post.setId(id);
-            ;
-            createPost(post);
-        }
-    }
 }

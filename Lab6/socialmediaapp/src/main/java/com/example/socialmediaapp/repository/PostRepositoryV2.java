@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PostRepositoryV2 extends CrudRepository<PostV2, Long> {
-    public List<PostV2> findAll();
+    List<PostV2> findAll();
 
-    public Optional<PostV2> findById(long id);
+    Optional<PostV2> findById(long id);
 }
 
