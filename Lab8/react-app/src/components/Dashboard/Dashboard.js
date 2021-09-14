@@ -1,5 +1,4 @@
 import Students from "../Student/Students";
-
 const Dashboard = () => {
   const students = [
     { id: 1, name: "Sam" },

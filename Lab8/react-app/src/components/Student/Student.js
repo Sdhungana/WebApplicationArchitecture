@@ -1,5 +1,5 @@
-import "./Student.css";
 import { useState, useRef } from "react";
+import "./Student.css";
 const Student = ({ id, name }) => {
   const [showBtn, setShowBtn] = useState(false);
   const [myName, setmyName] = useState(name);
@@ -14,6 +14,7 @@ const Student = ({ id, name }) => {
     setmyName(val);
     inputElem.current.value = "";
   };
+
   return (
     <div className="Student" onClick={showBtnHandler}>
       <span>
@@ -25,7 +26,7 @@ const Student = ({ id, name }) => {
         type="button"
         onClick={() => changeNameHandler(inputElem.current.value)}
       >
-        Update{" "}
+        Update
       </button>
       {showBtn ? (
         <div>
