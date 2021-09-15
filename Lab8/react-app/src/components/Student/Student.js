@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import "./Student.css";
-const Student = ({ id, name }) => {
+const Student = ({ id, name, major }) => {
   const [showBtn, setShowBtn] = useState(false);
   const [myName, setmyName] = useState(name);
   const inputElem = useRef(null);
@@ -17,23 +17,23 @@ const Student = ({ id, name }) => {
 
   return (
     <div className="Student" onClick={showBtnHandler}>
-      <span>
-        ID: {id} Name: {myName}
-      </span>
+      ID: {id} <br />
+      Name: {myName} <br />
+      Major: {major} <br />
       <br />
-      <input type="text" ref={inputElem} />
-      <button
-        type="button"
-        onClick={() => changeNameHandler(inputElem.current.value)}
-      >
-        Update
-      </button>
       {showBtn ? (
         <div>
           <button type="button">Edit </button>
           <button type="button">Delete </button>
         </div>
       ) : null}
+      <input type="text" ref={inputElem} />
+      <button
+        type="button"
+        onClick={() => changeNameHandler(inputElem.current.value)}
+      >
+        Change Name
+      </button>
     </div>
   );
 };
