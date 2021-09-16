@@ -1,5 +1,6 @@
 package com.example.socialmediaapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,7 @@ public class User {
     private long id;
     private String name;
     private String username;
+    @JsonIgnore
     private String password;
     boolean isEnabled;
 

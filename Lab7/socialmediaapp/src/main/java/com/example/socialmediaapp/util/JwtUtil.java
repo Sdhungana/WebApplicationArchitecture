@@ -17,7 +17,7 @@ public class JwtUtil {
     public static final long JWT_TOKEN_VALIDITY = 5*60*60;  // this * by 1000 is 5 hours
 
 
-    private String secret = "secretsdfgdsfsdfgdfgsdfgdsfmiuisagoodpalcetolearnffasidjfsdkfjasdf";
+    private String secret = "secretsdfgdsfsdfgdfgsdfgdskjgkljkjgljkfmiuisagoodpalcetolearnffasidjfsdkfjasdf";
 
     public String getUsernameFromToken(String token) {
 

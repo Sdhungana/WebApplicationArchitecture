@@ -1,0 +1,30 @@
+.Login {
+    display: grid;
+    width: 30%;
+    margin: auto;
+    background-color: rgb(192, 194, 62);
+    padding: 10px;
+}
+
+.Login div{
+    padding: 10px;
+}
+
+input:not(input[type=submit]) {
+    outline: none;
+}
+input[type=submit] {
+    padding: 10px;
+    border-radius: 8px;
+    width: 80px;
+    outline: none;
+    background-color: sandybrown;
+    color: #fff;
+    border: none;
+}
+
+input[type=submit]:hover{
+    background-color: seashell;
+    color: sandybrown;
+    transition: 0.5s;
+}

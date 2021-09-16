@@ -42,7 +42,8 @@ public class PostController {
     }
 
     //@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')") ----Forbidden---
-   @PreAuthorize("hasAnyAuthority('ADMIN,USER')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN,USER')")
+
     @GetMapping("/api/posts")
     public List<Post> getAllPosts() {
         return postService.getAll();
@@ -64,14 +65,14 @@ public class PostController {
         return resource;
     }
 
-    @PostMapping
+    @PostMapping("/api/posts")
     @ResponseStatus(value = HttpStatus.CREATED)
     public Post createPost(@RequestBody Post post) {
         postService.createPost(post);
         return post;
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/api/posts/{id}")
     public ResponseEntity<?> deletePost(@PathVariable int id) {
         postService.deletePost(id);
         return new ResponseEntity<>(HttpStatus.OK);

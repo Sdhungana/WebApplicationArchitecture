@@ -1,0 +1,10 @@
+.Post {
+    border: 2px solid gray;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    width: 400px;
+    height: 100px;
+    background-color: rgb(248 178 74);
+    overflow-y: auto;
+}
