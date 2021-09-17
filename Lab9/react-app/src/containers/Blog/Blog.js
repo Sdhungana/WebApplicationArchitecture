@@ -7,7 +7,12 @@ const Blog = () => {
   const [posts, setPosts] = useState([]);
   const [selectID, setSelectID] = useState(null);
   const [flag, setFlag] = useState(new Date());
+
   useEffect(() => {
+    getPosts();
+  }, []);
+
+  const getPosts = () => {
     axios
       .get("http://localhost:8088/api/posts", {
         headers: {
@@ -17,6 +22,10 @@ const Blog = () => {
       .then((res) => {
         setPosts(res.data);
       });
+  };
+  useEffect(() => {
+    //setSelectID(null);
+    getPosts();
   }, [flag]);
 
   const getIDHandler = (id) => {
@@ -25,12 +34,15 @@ const Blog = () => {
   const logoutHandler = () => {
     localStorage.clear();
   };
+  const setFlagHandler = () => {
+    setFlag(new Date());
+  };
 
   const fullPost = {
     id: selectID,
     title: { ...posts[selectID - 1] }.title,
     author: { ...posts[selectID - 1] }.author,
-    body: { ...posts[selectID - 1] }.body,
+    body: { ...posts[selectID - 1] }.content,
   };
   return (
     <section>
@@ -44,7 +56,7 @@ const Blog = () => {
         <Link to="/add-new">Add New Post</Link>{" "}
       </button>
       <Posts posts={posts} getID={getIDHandler} />
-      <FullPost {...fullPost} setFlag={setFlag} />
+      <FullPost {...fullPost} setFlag={setFlagHandler} />
     </section>
   );
 };

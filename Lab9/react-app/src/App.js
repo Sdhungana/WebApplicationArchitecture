@@ -3,6 +3,7 @@ import Blog from "./containers/Blog/Blog";
 import { Switch, Route } from "react-router";
 import Login from "./components/Login/Login";
 import NewPost from "./components/NewPost/NewPost";
+import { Link } from "react-router-dom";
 
 function App() {
   return (

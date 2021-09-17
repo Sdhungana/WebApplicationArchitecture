@@ -26,7 +26,7 @@ const FullPost = ({ id = null, title, author, body, setFlag }) => {
       })
       .then((res) => {
         console.log(res);
-        setFlag(new Date());
+        setFlag();
       })
       .catch((err) => console.log(err));
   };
