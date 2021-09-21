@@ -5,6 +5,7 @@ import com.example.socialmediaapp.domain.User;
 import com.example.socialmediaapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,5 +47,10 @@ public class UserController {
     @GetMapping("/userWithMoreThanOnePost")
     public List<User> getUserWithMoreThanOnePost() {
         return userService.getUserWithMoreThanOnePost();
+    }
+
+    @GetMapping("/username")
+    public String getUserName(Authentication authentication){
+        return authentication.getName();
     }
 }

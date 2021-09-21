@@ -1,0 +1,29 @@
+.Post {
+    border: 2px solid gray;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    width: 400px;
+    height: 150px;
+    background-color: rgb(255 237 211);
+    overflow-y: auto;
+    text-align: center;
+    box-shadow: 2px 2px rgb(94, 86, 86);
+}
+button {
+    
+    background-color: rgb(255 152 0);
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 6px;
+    outline: none;
+    margin-top: 8px;
+    color: #fff;
+    width: 80px;
+    border-color: orange;
+
+}
+button:hover{
+    background-color: oldlace;
+    color: orange;
+}
